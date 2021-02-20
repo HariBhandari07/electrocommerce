@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { Container, Navbar, Nav } from 'react-bootstrap'
 
 const Header = props => {
@@ -20,7 +19,5 @@ const Header = props => {
         </header>
     )
 }
-
-Header.propTypes = {}
 
 export default Header
