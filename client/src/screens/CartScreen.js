@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Row, Col, ListGroup, Image, Form, Button, Card } from 'react-bootstrap'
-import { addToCart } from '../actions/cartActions'
+import { addToCart, removeFromCart } from '../actions/cartActions'
 import Message from '../components/Message'
 import { Link } from 'react-router-dom'
 
@@ -17,7 +17,7 @@ const CartScreen = ({ match, location, history }) => {
         }
     }, [dispatch, productId, qty])
     const removeFromCartHandler = (id) => {
-
+        dispatch(removeFromCart(id))
     }
 
     const checkoutHandler = () => {
@@ -28,7 +28,7 @@ const CartScreen = ({ match, location, history }) => {
             <Col md={8}>
                 <h1>Shopping Cart</h1>
                 {cartItems.length === 0 ?
-                    <Message>Your cart is empty<Link to='/'>Go Back</Link></Message>
+                    <Message>Your cart is empty<Link to='/'> Go Back</Link></Message>
                     : <ListGroup variant='flush'>
                         {cartItems.map(item => <ListGroup.Item key={item.product}>
                             <Row>
